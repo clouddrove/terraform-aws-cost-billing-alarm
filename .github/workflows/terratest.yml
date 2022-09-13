@@ -39,7 +39,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          - name: 'Terratest pre-existing-sns-consolidated-acct'
+      - name: 'Terratest pre-existing-sns-consolidated-acct'
         if: ${{ github.event.label.name == 'terratest' }}
         uses: 'clouddrove/github-actions@v9.0.2'
         with:
@@ -48,7 +48,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          - name: 'Terratest pre-existing-sns-with-acct-id'
+      - name: 'Terratest pre-existing-sns-with-acct-id'
         if: ${{ github.event.label.name == 'terratest' }}
         uses: 'clouddrove/github-actions@v9.0.2'
         with:
