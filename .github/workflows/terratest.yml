@@ -12,7 +12,7 @@ jobs:
     steps:
 
       - name: 'Checkout'
-        uses: actions/checkout@master
+        uses: actions/checkout@aws-cost-billing-alarm
 
       - name: Configure AWS Credentials
         uses: clouddrove/configure-aws-credentials@v1
