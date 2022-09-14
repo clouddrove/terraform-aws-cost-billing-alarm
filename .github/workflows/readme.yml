@@ -2,7 +2,7 @@ name: 'Create README.md file'
 on:
   push:
     branches:
-      - master
+      - aws-cost-bill-alarm
 
 jobs:
   readme-create:
