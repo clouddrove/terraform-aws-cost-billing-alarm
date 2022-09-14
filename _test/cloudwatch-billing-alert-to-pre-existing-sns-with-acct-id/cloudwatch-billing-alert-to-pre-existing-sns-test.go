@@ -1,5 +1,5 @@
 // Managed By : CloudDrove
-// Description : This Terratest is used to test the Terraform EC2 module.
+// Description : This Terratest is used to test the Terraform terraform-aws-cost-billing-alarm module.
 // Copyright @ CloudDrove. All Right Reserved.
 package test
 
@@ -28,5 +28,5 @@ func Test(t *testing.T) {
 	Tags := terraform.OutputMap(t, terraformOptions, "tags")
 
 	// Check that we get back the outputs that we expect
-	assert.Equal(t, "billing/aws_cloudwatch-test", Tags["Name"])
+	assert.Equal(t, "billing_cloudwatch-test", Tags["Name"])
 }

@@ -42,55 +42,55 @@ include:
 usage: |-
   Here is examples of how you can use this module in your inventory structure:
   ### cloudwatch-billing-alert-to-new-sns-consolidated-acct
-```hcl
-  module "billing_cloudwatch_alert" {
-  source = "clouddrove/terraform-aws-cost-billing-alarm/aws"
-  name                      = "billing/aws"
-  environment               = "test"
-  label_order               = ["name", "environment"]
-  monthly_billing_threshold = 10
-  currency                  = "USD"
-}
+  ```hcl
+    module "billing_cloudwatch_alert" {
+    source = "clouddrove/terraform-aws-cost-billing-alarm/aws"
+    name                      = "billing/aws"
+    environment               = "test"
+    label_order               = ["name", "environment"]
+    monthly_billing_threshold = 10
+    currency                  = "USD"
+    }
   ```
 
   ### cloudwatch-billing-alert-to-new-sns-with-acct-id
   ```hcl
-  module "billing_cloudwatch_alert" {
-  source = "clouddrove/terraform-aws-cost-billing-alarm/aws"
-  name                      = "billing/aws"
-  environment               = "test"
-  label_order               = ["name", "environment"]
-  aws_env                   = var.aws_profile
-  aws_account_id            = 111111111111
-  monthly_billing_threshold = 500
-  currency                  = "USD"
-  }
+    module "billing_cloudwatch_alert" {
+    source = "clouddrove/terraform-aws-cost-billing-alarm/aws"
+    name                      = "billing/aws"
+    environment               = "test"
+    label_order               = ["name", "environment"]
+    aws_env                   = var.aws_profile
+    aws_account_id            = 111111111111
+    monthly_billing_threshold = 500
+    currency                  = "USD"
+    }
   ```
 
   ### cloudwatch-billing-alert-to-pre-existing-sns-consolidated-acct
   ```hcl
-  module "billing_cloudwatch_alert" {
-  source = "clouddrove/terraform-aws-cost-billing-alarm/aws"
-  name                      = "billing/aws"
-  environment               = "test"
-  label_order               = ["name", "environment"]
-  aws_env                   = var.aws_profile
-  monthly_billing_threshold = 500
-  currency                  = "USD"
-  aws_sns_topic_arn         = ["arn:aws:lambda:us-east-1:111111111111:function:bb-root-org-notify_slack"]
-  }
+    module "billing_cloudwatch_alert" {
+    source = "clouddrove/terraform-aws-cost-billing-alarm/aws"
+    name                      = "billing/aws"
+    environment               = "test"
+    label_order               = ["name", "environment"]
+    aws_env                   = var.aws_profile
+    monthly_billing_threshold = 500
+    currency                  = "USD"
+    aws_sns_topic_arn         = ["arn:aws:lambda:us-east-1:111111111111:function:bb-root-org-notify_slack"]
+    }
   ```
 
   ### cloudwatch-billing-alert-to-pre-existing-sns-with-acct-id
   ```hcl
-  module "billing_cloudwatch_alert" {
-  source = "clouddrove/terraform-aws-cost-billing-alarm/aws"
-  name                      = "billing/aws"
-  environment               = "test"
-  label_order               = ["name", "environment"]
-  aws_account_id            = 111111111111
-  monthly_billing_threshold = 500
-  currency                  = "USD"
-  aws_sns_topic_arn         = ["arn:aws:lambda:us-east-1:111111111111:function:bb-root-org-notify_slack"]
-}
- ```
+    module "billing_cloudwatch_alert" {
+    source = "clouddrove/terraform-aws-cost-billing-alarm/aws"
+    name                      = "billing/aws"
+    environment               = "test"
+    label_order               = ["name", "environment"]
+    aws_account_id            = 111111111111
+    monthly_billing_threshold = 500
+    currency                  = "USD"
+    aws_sns_topic_arn         = ["arn:aws:lambda:us-east-1:111111111111:function:bb-root-org-notify_slack"]
+    }
+  ```
