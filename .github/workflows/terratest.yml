@@ -2,7 +2,7 @@ name: 'Terratest GitHub Actions'
 on:
   pull_request:
     branches:
-      - master
+      - aws-cost-bill-alarm
     types: [labeled]
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
     steps:
 
       - name: 'Checkout'
-        uses: actions/checkout@master
+        uses: actions/checkout@aws-cost-bill-alarm
 
       - name: Configure AWS Credentials
         uses: clouddrove/configure-aws-credentials@v1
