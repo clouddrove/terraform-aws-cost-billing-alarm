@@ -2,7 +2,7 @@ name: 'Terratest GitHub Actions'
 on:
   pull_request:
     branches:
-      - aws-cost-bill-alarm
+      - master
     types: [labeled]
 
 jobs:
