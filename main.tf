@@ -8,7 +8,7 @@
 #              naming convention.
 module "labels" {
   source  = "clouddrove/labels/aws"
-  version = "0.15.0"
+  version = "1.3.0"
 
   enabled     = var.enabled
   name        = var.name
@@ -72,7 +72,7 @@ resource "aws_cloudwatch_metric_alarm" "account_billing_alarm" {
 
 resource "aws_sns_topic" "default" {
   count = var.enable ? 1 : 0
-  
+
   name                                     = "billing-alarm-notification-${lower(var.currency)}-${var.environment}"
   display_name                             = var.display_name
   policy                                   = var.policy
@@ -91,4 +91,4 @@ resource "aws_sns_topic" "default" {
   sqs_success_feedback_sample_rate         = var.sqs_success_feedback_sample_rate
   sqs_failure_feedback_role_arn            = var.sqs_failure_feedback_role_arn
   tags                                     = module.labels.tags
-}       
+}
