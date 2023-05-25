@@ -8,19 +8,49 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    # Add assignees
+    assignees:
+      - "clouddrove-ci"
+    # Add reviewer
+    reviewers:
+      - "approvers"
   - package-ecosystem: "terraform" # See documentation for possible values
     directory: "_example/cloudwatch-billing-alert-to-new-sns-consolidated-acct" # Location of package manifests
     schedule:
       interval: "weekly"
+    # Add assignees
+    assignees:
+      - "clouddrove-ci"
+    # Add reviewer
+    reviewers:
+      - "approvers"
   - package-ecosystem: "terraform" # See documentation for possible values
     directory: "_example/cloudwatch-billing-alert-to-new-sns-with-acct-id" # Location of package manifests
     schedule:
       interval: "weekly"
+    # Add assignees
+    assignees:
+      - "clouddrove-ci"
+    # Add reviewer
+    reviewers:
+      - "approvers"
   - package-ecosystem: "terraform" # See documentation for possible values
     directory: "_example/cloudwatch-billing-alert-to-pre-existing-sns-consolidated-acct" # Location of package manifests
     schedule:
       interval: "weekly"
+    # Add assignees
+    assignees:
+      - "clouddrove-ci"
+    # Add reviewer
+    reviewers:
+      - "approvers"
   - package-ecosystem: "terraform" # See documentation for possible values
     directory: "_example/cloudwatch-billing-alert-to-pre-existing-sns-with-acct-id" # Location of package manifests
     schedule:
       interval: "weekly"
+    # Add assignees
+    assignees:
+      - "clouddrove-ci"
+    # Add reviewer
+    reviewers:
+      - "approvers"
