@@ -15,18 +15,19 @@ github_repo: clouddrove/terraform-aws-cost-billing-alarm
 
 # Badges to display
 badges:
-  - name: "Terraform"
-    image: "https://img.shields.io/badge/Terraform-v1.1.7-green"
-    url: "https://www.terraform.io"
-  - name: "Licence"
-    image: "https://img.shields.io/badge/License-APACHE-blue.svg"
-    url: "LICENSE.md"
+  - name: "Latest Release"
+    image: "https://img.shields.io/github/release/clouddrove/terraform-aws-cost-billing-alarm.svg"
+    url: "https://github.com/clouddrove/terraform-aws-cost-billing-alarm/releases/latest"
   - name: "tfsec"
     image: "https://github.com/clouddrove/terraform-aws-cost-billing-alarm/actions/workflows/tfsec.yml/badge.svg"
     url: "https://github.com/clouddrove/terraform-aws-cost-billing-alarm/actions/workflows/tfsec.yml"
-  - name: "static-checks"
-    image: "https://github.com/clouddrove/terraform-aws-cost-billing-alarm/actions/workflows/terraform.yml/badge.svg"
-    url: "https://github.com/clouddrove/terraform-aws-cost-billing-alarm/actions/workflows/terraform.yml"
+  - name: "Licence"
+    image: "https://img.shields.io/badge/License-APACHE-blue.svg"
+    url: "LICENSE.md"
+
+prerequesties:
+  - name: Terraform 1.5.6
+    url: https://learn.hashicorp.com/terraform/getting-started/install.html
 
 #  description of this project
 # yamllint disable rule:line-length
@@ -44,53 +45,93 @@ usage: |-
   ### cloudwatch-billing-alert-to-new-sns-consolidated-acct
   ```hcl
     module "billing_cloudwatch_alert" {
-    source = "clouddrove/terraform-aws-cost-billing-alarm/aws"
-    name                      = "billing/aws"
-    environment               = "test"
-    label_order               = ["name", "environment"]
-    monthly_billing_threshold = 10
-    currency                  = "USD"
+      source                    = "clouddrove/terraform-aws-cost-billing-alarm/aws"
+      name                      = "billing/aws"
+      environment               = "test"
+      monthly_billing_threshold = 10
+      currency                  = "USD"
+      subscribers = {
+        sms = {
+          protocol                        = "email"
+          endpoint                        = "xxxxxxx@clouddrove.com"
+          endpoint_auto_confirms          = false
+          raw_message_delivery            = false
+          filter_policy                   = ""
+          delivery_policy                 = ""
+          confirmation_timeout_in_minutes = "60"
+        }
+      }
     }
   ```
 
   ### cloudwatch-billing-alert-to-new-sns-with-acct-id
   ```hcl
     module "billing_cloudwatch_alert" {
-    source = "clouddrove/terraform-aws-cost-billing-alarm/aws"
-    name                      = "billing/aws"
-    environment               = "test"
-    label_order               = ["name", "environment"]
-    aws_env                   = var.aws_profile
-    aws_account_id            = 111111111111
-    monthly_billing_threshold = 500
-    currency                  = "USD"
+      source                    = "clouddrove/terraform-aws-cost-billing-alarm/aws"
+      name                      = "billing/aws"
+      environment               = "test"
+      aws_account_id            = 11111111111
+      monthly_billing_threshold = 100
+      currency                  = "USD"
+
+      subscribers = {
+        sms = {
+          protocol                        = "email"
+          endpoint                        = "xxxxxxxxclouddrove.com"
+          endpoint_auto_confirms          = false
+          raw_message_delivery            = false
+          filter_policy                   = ""
+          delivery_policy                 = ""
+          confirmation_timeout_in_minutes = "60"
+        }
+      }
     }
   ```
 
   ### cloudwatch-billing-alert-to-pre-existing-sns-consolidated-acct
   ```hcl
     module "billing_cloudwatch_alert" {
-    source = "clouddrove/terraform-aws-cost-billing-alarm/aws"
-    name                      = "billing/aws"
-    environment               = "test"
-    label_order               = ["name", "environment"]
-    aws_env                   = var.aws_profile
-    monthly_billing_threshold = 500
-    currency                  = "USD"
-    aws_sns_topic_arn         = ["arn:aws:lambda:us-east-1:111111111111:function:bb-root-org-notify_slack"]
+      source                    = "clouddrove/terraform-aws-cost-billing-alarm/aws"
+      name                      = "billing/aws"
+      environment               = "test"
+      monthly_billing_threshold = 500
+      currency                  = "USD"
+      #sns_topic_arns           = ["arn:aws:lambda:us-east-1:111111111111:function:bb-root-org-notify_slack"]
+      subscribers = {
+        sms = {
+          protocol                        = "email"
+          endpoint                        = "xxxxxclouddrove.com"
+          endpoint_auto_confirms          = false
+          raw_message_delivery            = false
+          filter_policy                   = ""
+          delivery_policy                 = ""
+          confirmation_timeout_in_minutes = "60"
+        }
+      }
     }
   ```
 
   ### cloudwatch-billing-alert-to-pre-existing-sns-with-acct-id
   ```hcl
     module "billing_cloudwatch_alert" {
-    source = "clouddrove/terraform-aws-cost-billing-alarm/aws"
-    name                      = "billing/aws"
-    environment               = "test"
-    label_order               = ["name", "environment"]
-    aws_account_id            = 111111111111
-    monthly_billing_threshold = 500
-    currency                  = "USD"
-    aws_sns_topic_arn         = ["arn:aws:lambda:us-east-1:111111111111:function:bb-root-org-notify_slack"]
+      source                    = "clouddrove/terraform-aws-cost-billing-alarm/aws"
+      name                      = "billing/aws"
+      environment               = "test"
+      aws_account_id            = 111111111111
+      monthly_billing_threshold = 500
+      currency                  = "USD"
+      #sns_topic_arns           = ["arn:aws:lambda:us-east-1:111111111111:function:bb-root-org-notify_slack"]
+
+      subscribers = {
+        sms = {
+          protocol                        = "email"
+          endpoint                        = "clouddrove.com"
+          endpoint_auto_confirms          = false
+          raw_message_delivery            = false
+          filter_policy                   = ""
+          delivery_policy                 = ""
+          confirmation_timeout_in_minutes = "60"
+        }
+      }
     }
   ```
