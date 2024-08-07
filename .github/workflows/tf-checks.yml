@@ -6,21 +6,21 @@ on:
   workflow_dispatch:
 jobs:
   cloudwatch-billing-alert-to-new-sns-consolidated-acct-example:
-    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@1.0.9
+    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
     with:
       working_directory: './examples/cloudwatch-billing-alert-to-new-sns-consolidated-acct/'
 
   cloudwatch-billing-alert-to-new-sns-with-acct-id-example:
-    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@1.0.9
+    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
     with:
       working_directory: './examples/cloudwatch-billing-alert-to-new-sns-with-acct-id/'
 
   cloudwatch-billing-alert-to-pre-existing-sns-consolidated-acct-example:
-    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@1.0.9
+    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
     with:
       working_directory: './examples/cloudwatch-billing-alert-to-pre-existing-sns-consolidated-acct/'
 
   cloudwatch-billing-alert-to-pre-existing-sns-with-acct-id-example:
-    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@1.0.9
+    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
     with:
       working_directory: './examples/cloudwatch-billing-alert-to-pre-existing-sns-with-acct-id/'
