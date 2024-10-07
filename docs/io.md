@@ -36,4 +36,3 @@
 | Name | Description |
 |------|-------------|
 | sns\_topic\_arns | List of SNS Topic ARNs to be subscribed to in order to delivery the clodwatch billing alarms |
-
